@@ -1,12 +1,10 @@
-package com.example.ditest1.viewmodel
+package com.example.ditest3.viewmodel
 
-import com.example.ditest1.domain.WebData
-import com.example.ditest1.service.GetWebDataService
+import com.example.ditest3.service.IGetWebDataService
 
-class MainViewModel {
+class MainViewModel(private val service: IGetWebDataService) {
 
     private val TAG = "[ViewModel]"
-    private val service = GetWebDataService()
 
     var body: String = ""
         private set

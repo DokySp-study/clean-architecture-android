@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private val TAG = "[Activity]"
 
     lateinit var binding: ActivityMainBinding
-    var viewmodel = MainViewModel(GetWebDataService(GetWebDataRepository()))
+    var viewmodel = MainViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

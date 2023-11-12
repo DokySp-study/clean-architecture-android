@@ -1,13 +1,13 @@
-package com.example.ditest2
+package com.example.ditest3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.example.ditest2.databinding.ActivityMainBinding
-import com.example.ditest2.repository.GetWebDataRepository
-import com.example.ditest2.service.GetWebDataService
-import com.example.ditest2.viewmodel.MainViewModel
+import com.example.ditest3.databinding.ActivityMainBinding
+import com.example.ditest3.repository.GetWebDataRepository
+import com.example.ditest3.service.GetWebDataService
+import com.example.ditest3.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 

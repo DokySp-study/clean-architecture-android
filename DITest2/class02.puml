@@ -1,0 +1,53 @@
+@startuml class01
+
+Class MainActivity {
+  -val viewmodel: ViewModel
+}
+
+Class ViewModel {
+  -<<constructor>> val service: IService
+  +var body: String
+  +var message: String
+  +var status: Int
+  +var isError: Boolean
+  +fun getWebData()
+}
+
+Class Service {
+  -<<constructor>> val repository: IRepository
+  +fun getWebDataByUrl(url: String): WebData
+}
+
+Interface IService {
+  +fun getWebDataByUrl(url: String): WebData
+}
+
+
+Class Repository {
+  +fun getWebDataByUrl(url: String): WebData
+}
+
+Interface IRepository {
+  +fun getWebDataByUrl(url: String): WebData
+}
+
+Class WebData {
+  +val url: String
+  +val header: String
+  +val body: String
+  +val status: Int
+}
+
+Repository -[dashed]left-|> IRepository
+Service -[dashed]left-|> IService
+
+Service -[dashed]down-> IRepository
+ViewModel -[dashed]down-> IService
+MainActivity -[dashed]down-> ViewModel
+
+Repository -[dashed]right-> WebData
+Service -[dashed]right-> WebData
+
+note right of MainActivity: var viewmodel = MainViewModel(\n  GetWebDataService(\n    GetWebDataRepository()\n  )\n)
+
+@enduml

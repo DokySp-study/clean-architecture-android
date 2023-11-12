@@ -1,15 +1,15 @@
-package com.example.ditest1.service
+package com.example.ditest3.service
 
 import android.util.Log
-import com.example.ditest1.domain.WebData
-import com.example.ditest1.repository.GetWebDataRepository
+import com.example.ditest3.domain.WebData
+import com.example.ditest3.repository.GetWebDataRepository
+import com.example.ditest3.repository.IGetWebDataRepository
 
-class GetWebDataService {
+class GetWebDataService(private val repository: IGetWebDataRepository): IGetWebDataService {
 
     private val TAG = "[Service]"
-    private val repository = GetWebDataRepository()
 
-    fun getWebDataByUrl(url: String): WebData {
+    override fun getWebDataByUrl(url: String): WebData {
 
         val data = repository.getWebDataByUrl(url)
         Log.i(TAG, "get data")
